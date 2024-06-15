@@ -5,16 +5,25 @@ public class Ejercicio1{
 
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
+        boolean repetir = true;
 
-        System.out.println("Introduce un numero para calcular su factorial: ");
-        try {
-            System.out.println(calcular_factorial(entrada.nextLong()));
-        } catch (FactorialException e) {
-            System.out.println(e.getMessage());
+        while (repetir) {
+            System.out.println("Introduce un numero para calcular su factorial: ");
+            
+            try {
+                System.out.println("Resultado: " + calcular_factorial(entrada.nextLong())+"\n");
+            } catch (FactorialException e) {
+                System.out.println(e.getMessage());
+            }
+            finally{
+                System.out.println("Ingrese '1' para terminar el programa. Sino, ingrese cualquier numero: ");
+                long x = entrada.nextLong();
+                if (x == 1) {  
+                    repetir = false;
+                }
+            }
         }
-        finally {
-            entrada.close();
-        }
+        entrada.close();
         
     }
 
