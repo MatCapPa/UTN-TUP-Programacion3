@@ -150,7 +150,7 @@ public class WindowGUI extends JFrame{
                 String cuenta = objeto1.verificarCuentaBienEscrita(labelCuenta.getText());
                 if (cuenta != null){
                     TreeNode root = et.constructTree(cuenta);
-                    int resultado = et.evaluate(root);
+                    double resultado = et.evaluate(root);
                     labelResultado.setText(" = "+ resultado);
                 }else {
                     JOptionPane.showMessageDialog(Panel, "Ocurrio un error.");

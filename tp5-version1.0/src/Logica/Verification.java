@@ -15,21 +15,7 @@ public class Verification {
             }
 
             if (unidad == '1' || unidad == '2' || unidad == '3' || unidad == '4' || unidad == '5' || unidad == '6' || unidad == '7' || unidad == '8' || unidad == '9' || unidad == '0') {
-                if (unidadPosterior == '1' || unidadPosterior == '2' || unidadPosterior == '3' || unidadPosterior == '4' || unidadPosterior == '5' || unidadPosterior == '6' ||
-                        unidadPosterior == '7' || unidadPosterior == '8' || unidadPosterior == '9' || unidadPosterior == '0') {
-                    for (int j = i; j < texto.length(); j++) {
-                        char c = texto.charAt(j);
-                        if (c == '+' || c == '/' || c == '-' || c == '*') {
-                            i = j - 1; //continuo el ciclo desde la posicion del ultimo numero encadenado
-                            break;
-                        }
-                        nuevoTexto = nuevoTexto + c;
-                        i = j;
-                    }
-                } else {
-                    nuevoTexto = nuevoTexto + unidad;
-                }
-
+                nuevoTexto = nuevoTexto + unidad;
             }
 
             if (unidad == '+' || unidad == '/' || unidad == '-' || unidad == '*') {

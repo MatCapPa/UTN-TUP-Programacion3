@@ -4,8 +4,6 @@ import java.util.Stack;
 
 public class ExpressionTree {
 
-
-
     public TreeNode constructTree(String infix) {
         Stack<TreeNode> nodes = new Stack<>();
         Stack<Character> ops = new Stack<>();
@@ -64,35 +62,21 @@ public class ExpressionTree {
         return ch == '+' || ch == '-' || ch == '*' || ch == '/';
     }
 
-    // Función para realizar un recorrido in-order
-    public void inorder(TreeNode t) {
-        if (t != null) {
-            inorder(t.left);
-            System.out.print(t.value + " ");
-            inorder(t.right);
-        }
-    }
-
     // Función para evaluar el árbol binario de expresión
-    public int evaluate(TreeNode root) {
+    public double evaluate(TreeNode root) {
         if (root.left == null && root.right == null)
             return Integer.parseInt(root.value);
 
-        int leftEval = evaluate(root.left);
-        int rightEval = evaluate(root.right);
+        double leftEval = evaluate(root.left);
+        double rightEval = evaluate(root.right);
 
-        switch (root.value) {
-            case "+":
-                return leftEval + rightEval;
-            case "-":
-                return leftEval - rightEval;
-            case "*":
-                return leftEval * rightEval;
-            case "/":
-                return leftEval / rightEval;
-        }
-
-        return 0;
+        return switch (root.value) {
+            case "+" -> leftEval + rightEval;
+            case "-" -> leftEval - rightEval;
+            case "*" -> leftEval * rightEval;
+            case "/" -> leftEval / rightEval;
+            default -> 0;
+        };
     }
 }
 
